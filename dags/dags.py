@@ -1,112 +1,93 @@
-
-"""
-### Tutorial Documentation
-Documentation that goes along with the Airflow tutorial located
-[here](https://airflow.apache.org/tutorial.html)
-"""
-# [START tutorial]
-# [START import_module]
+# importing the datetime
+import airflow
 from datetime import timedelta
-from textwrap import dedent
-
-# The DAG object; we'll need this to instantiate a DAG
 from airflow import DAG
+from airflow.operators.postgres_operator import PostgresOperator
+from airflow.utils.dates import days_ago
+
+# configuring default airflow
+args={'owner': 'ekubay'}
+
+default_args = {
+    'owner': 'ekubay',    
+    #'start_date': airflow.utils.dates.days_ago(2),
+    # 'end_date': datetime(),
+    # 'depends_on_past': False,
+    #'email': ['airflow@example.com'],
+    #'email_on_failure': False,
+    # 'email_on_retry': False,
+    # If a task fails, retry it once after waiting
+    # at least 5 minutes
+    'retries': 1,
+    'retry_delay': timedelta(minutes=5),
+}
+
+# instantiating DAG
+dag_psql = DAG(
+    dag_id = "postgres_demo",
+    default_args=args,
+    # schedule_interval='0 0 * * *',
+    schedule_interval='@once',	
+    dagrun_timeout=timedelta(minutes=60),
+    description='use case of psql operator in airflow',
+    start_date = airflow.utils.dates.days_ago(1)
+)
+# Set up Airflow Task using the Postgres Operator
+
+create_table_sql_query = """ 
+CREATE TABLE cars (id int NOT null primary key , track_id int not null, vehicle_type varchar(500) NOT null,
+traveled_d varchar(500) NOT null, avg_speed float NOT null, lat float NOT null, lon float NOT null, speed float NOT null,
+loan_acc float NOT null, lat_acc float NOT null, record_time float NOT null);
+"""
+# insert_data_sql_query = """
+# insert into employee (id, name, dept) values(1, 'vamshi','bigdata'),(2, 'divya','bigdata'),(3, 'binny','projectmanager'),
+# (4, 'omair','projectmanager') ;"""
+insert_data_sql_query ="""
+COPY cars(track_id, vehicle_type, traveled_d, avg_speed, lat, lon, speed, loan_acc, lat_acc, record_time)
+FROM ../Data/cleanData.csv
+"""
+# DELIMITER ','
+# CSV HEADER;
+  # creating table 
+create_table = PostgresOperator(
+    sql = create_table_sql_query,
+    task_id = "create_table_task",
+    postgres_conn_id = "postgres_local",
+    dag = dag_psql
+    )
+  # inseritng 
+insert_data = PostgresOperator(
+    sql = insert_data_sql_query,
+    task_id = "insert_data_task",
+    postgres_conn_id = "postgres_local",
+    dag = dag_psql
+
+# confeguring dependencies 
+create_table >> insert_data
+
+    if __name__ == "__main__":
+        dag_psql.cli()
+    
+# The DAG object; we'll need this to instantiate a DAG
+#from airflow import DAG
+
+
+# creating the dag object with context manager
+# with DAG(
+#     'my_dag',
+#     start_date = datetime(2022, 1, 1)
+#     default_args=default_args,
+#     schedule_interval = "@daily",
+#     description='DAG code', 
+#     catchup = False) as dag:
+      
 
 # Operators; we need this to operate!
-from airflow.operators.bash import BashOperator
-from airflow.utils.dates import days_ago
+# from airflow.operators.bash import BashOperator
+# from airflow.utils.dates import days_ago
 
 # [END import_module]
 
 # [START default_args]
 # These args will get passed on to each operator
 # You can override them on a per-task basis during operator initialization
-default_args = {
-    'owner': 'airflow',
-    'depends_on_past': False,
-    'email': ['airflow@example.com'],
-    'email_on_failure': False,
-    'email_on_retry': False,
-    'retries': 1,
-    'retry_delay': timedelta(minutes=5),
-    # 'queue': 'bash_queue',
-    # 'pool': 'backfill',
-    # 'priority_weight': 10,
-    # 'end_date': datetime(2016, 1, 1),
-    # 'wait_for_downstream': False,
-    # 'dag': dag,
-    # 'sla': timedelta(hours=2),
-    # 'execution_timeout': timedelta(seconds=300),
-    # 'on_failure_callback': some_function,
-    # 'on_success_callback': some_other_function,
-    # 'on_retry_callback': another_function,
-    # 'sla_miss_callback': yet_another_function,
-    # 'trigger_rule': 'all_success'
-}
-# [END default_args]
-
-# [START instantiate_dag]
-with DAG(
-    'tutorial',
-    default_args=default_args,
-    description='A simple tutorial DAG',
-    schedule_interval=timedelta(days=1),
-    start_date=days_ago(2),
-    tags=['example'],
-) as dag:
-    # [END instantiate_dag]
-
-    # t1, t2 and t3 are examples of tasks created by instantiating operators
-    # [START basic_task]
-    t1 = BashOperator(
-        task_id='print_date',
-        bash_command='date',
-    )
-
-    t2 = BashOperator(
-        task_id='sleep',
-        depends_on_past=False,
-        bash_command='sleep 5',
-        retries=3,
-    )
-    # [END basic_task]
-
-    # [START documentation]
-    t1.doc_md = dedent(
-        """\
-    #### Task Documentation
-    You can document your task using the attributes `doc_md` (markdown),
-    `doc` (plain text), `doc_rst`, `doc_json`, `doc_yaml` which gets
-    rendered in the UI's Task Instance Details page.
-    ![img](http://montcs.bloomu.edu/~bobmon/Semesters/2012-01/491/import%20soul.png)
-
-    """
-    )
-
-    dag.doc_md = __doc__  # providing that you have a docstring at the beggining of the DAG
-    dag.doc_md = """
-    This is a documentation placed anywhere
-    """  # otherwise, type it like this
-    # [END documentation]
-
-    # [START jinja_template]
-    templated_command = dedent(
-        """
-    {% for i in range(5) %}
-        echo "{{ ds }}"
-        echo "{{ macros.ds_add(ds, 7)}}"
-        echo "{{ params.my_param }}"
-    {% endfor %}
-    """
-    )
-
-    t3 = BashOperator(
-        task_id='templated',
-        depends_on_past=False,
-        bash_command=templated_command,
-        params={'my_param': 'Parameter I passed in'},
-    )
-    # [END jinja_template]
-
-    t1 >> [t2, t3]
-# [END tutorial]
