@@ -1,10 +1,7 @@
 {{ config(materialized='view') }}
 
-with source_data as (
-
-    select * from cars where avg_speed>40
-
+with Longest_distance as (
+    select * from {{ref('fast_car_dbt_model')}} 
+        order by traveled_d ASC 
 )
-
-select *
-from source_data
+select * from Longest_distance

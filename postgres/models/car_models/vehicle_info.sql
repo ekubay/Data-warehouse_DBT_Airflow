@@ -1,7 +1,7 @@
 {{ config(materialized='view') }}
 
 with source_data as (
-    select * from cars where avg_speed>37 order by type
+    select type, traveled_d, avg_speed, time from cars where avg_speed > 40  
 )
 select *
 from source_data
