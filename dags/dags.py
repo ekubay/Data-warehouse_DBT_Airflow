@@ -6,7 +6,7 @@ from airflow.operators.postgres_operator import PostgresOperator
 from airflow.utils.dates import days_ago
 
 # configuring default airflow
-args={'owner': 'ekubay'}
+args={'owner':'ekubay'}
 
 default_args = {
     'owner': 'ekubay',    
@@ -34,8 +34,8 @@ dag_psql = DAG(
 
 # Set up Airflow Task using the Postgres Operator
 create_table_sql_query = """ 
-CREATE TABLE cars (id int NOT null primary key , track_id int not null, vehicle_type varchar(500) NOT null,
-traveled_d varchar(500) NOT null, avg_speed float NOT null, lat float NOT null, lon float NOT null, speed float NOT null,
+CREATE TABLE cars (id serial NOT null primary key , track_id int not null, vehicle_type varchar(400) NOT null,
+traveled_d varchar(400) NOT null, avg_speed float NOT null, lat float NOT null, lon float NOT null, speed float NOT null,
 loan_acc float NOT null, lat_acc float NOT null, record_time float NOT null);
 """
 # insert_data_sql_query = """
@@ -43,26 +43,26 @@ loan_acc float NOT null, lat_acc float NOT null, record_time float NOT null);
 # (4, 'omair','projectmanager') ;"""
 insert_data_sql_query ="""
 COPY cars(track_id, vehicle_type, traveled_d, avg_speed, lat, lon, speed, loan_acc, lat_acc, record_time)
-FROM '../Data/cleanData.csv'
-DELIMITER ','
+FROM ../Data/cleanData.csv
+DELIMITER ,
 CSV HEADER;
 """
 # creating table  car using the postgres operator
-create_table = PostgresOperator(
+create_Table = PostgresOperator(
     sql = create_table_sql_query,
     task_id = "create_table_task",
     postgres_conn_id = "postgres_dag",
     dag = dag_psql
     )
   # inseritng to cars using postgres operator
-insert_data = PostgresOperator(
+insert_Data = PostgresOperator(
     sql = insert_data_sql_query,
     task_id = "insert_data_task",
     postgres_conn_id = "postgres_dag",
     dag = dag_psql
-
+)
 # confeguring dependencies 
-create_table >> insert_data
+create_Table >> insert_Data
 
-    if __name__ == "__main__":
-        dag_psql.cli()
+# if __name__ == "__main__":
+#     dag_psql.cli()
