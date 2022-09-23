@@ -1500,3 +1500,31 @@
 [2022-09-23T08:35:34.126+0000] {logging_mixin.py:117} INFO - [2022-09-23T08:35:34.126+0000] {dag.py:2573} INFO - Sync 1 DAGs
 [2022-09-23T08:35:34.202+0000] {logging_mixin.py:117} INFO - [2022-09-23T08:35:34.201+0000] {dag.py:3328} INFO - Setting next_dagrun for example_branch_operator to 2022-09-22T00:00:00+00:00, run_after=2022-09-23T00:00:00+00:00
 [2022-09-23T08:35:34.277+0000] {processor.py:178} INFO - Processing /home/airflow/.local/lib/python3.7/site-packages/airflow/example_dags/example_branch_operator.py took 0.246 seconds
+[2022-09-23T08:36:04.347+0000] {processor.py:156} INFO - Started process (PID=10846) to work on /home/airflow/.local/lib/python3.7/site-packages/airflow/example_dags/example_branch_operator.py
+[2022-09-23T08:36:04.349+0000] {processor.py:758} INFO - Processing file /home/airflow/.local/lib/python3.7/site-packages/airflow/example_dags/example_branch_operator.py for tasks to queue
+[2022-09-23T08:36:04.349+0000] {logging_mixin.py:117} INFO - [2022-09-23T08:36:04.349+0000] {dagbag.py:525} INFO - Filling up the DagBag from /home/airflow/.local/lib/python3.7/site-packages/airflow/example_dags/example_branch_operator.py
+[2022-09-23T08:36:04.370+0000] {processor.py:768} INFO - DAG(s) dict_keys(['example_branch_operator']) retrieved from /home/airflow/.local/lib/python3.7/site-packages/airflow/example_dags/example_branch_operator.py
+[2022-09-23T08:36:04.429+0000] {logging_mixin.py:117} INFO - [2022-09-23T08:36:04.429+0000] {dag.py:2573} INFO - Sync 1 DAGs
+[2022-09-23T08:36:04.463+0000] {logging_mixin.py:117} INFO - [2022-09-23T08:36:04.462+0000] {dag.py:3328} INFO - Setting next_dagrun for example_branch_operator to 2022-09-22T00:00:00+00:00, run_after=2022-09-23T00:00:00+00:00
+[2022-09-23T08:36:04.533+0000] {processor.py:178} INFO - Processing /home/airflow/.local/lib/python3.7/site-packages/airflow/example_dags/example_branch_operator.py took 0.189 seconds
+[2022-09-23T08:36:34.973+0000] {processor.py:156} INFO - Started process (PID=10901) to work on /home/airflow/.local/lib/python3.7/site-packages/airflow/example_dags/example_branch_operator.py
+[2022-09-23T08:36:34.995+0000] {processor.py:758} INFO - Processing file /home/airflow/.local/lib/python3.7/site-packages/airflow/example_dags/example_branch_operator.py for tasks to queue
+[2022-09-23T08:36:34.995+0000] {logging_mixin.py:117} INFO - [2022-09-23T08:36:34.995+0000] {dagbag.py:525} INFO - Filling up the DagBag from /home/airflow/.local/lib/python3.7/site-packages/airflow/example_dags/example_branch_operator.py
+[2022-09-23T08:36:35.018+0000] {processor.py:768} INFO - DAG(s) dict_keys(['example_branch_operator']) retrieved from /home/airflow/.local/lib/python3.7/site-packages/airflow/example_dags/example_branch_operator.py
+[2022-09-23T08:36:35.072+0000] {logging_mixin.py:117} INFO - [2022-09-23T08:36:35.072+0000] {dag.py:2573} INFO - Sync 1 DAGs
+[2022-09-23T08:36:35.101+0000] {logging_mixin.py:117} INFO - [2022-09-23T08:36:35.101+0000] {dag.py:3328} INFO - Setting next_dagrun for example_branch_operator to 2022-09-22T00:00:00+00:00, run_after=2022-09-23T00:00:00+00:00
+[2022-09-23T08:36:35.172+0000] {processor.py:178} INFO - Processing /home/airflow/.local/lib/python3.7/site-packages/airflow/example_dags/example_branch_operator.py took 0.204 seconds
+[2022-09-23T08:37:05.930+0000] {processor.py:156} INFO - Started process (PID=10966) to work on /home/airflow/.local/lib/python3.7/site-packages/airflow/example_dags/example_branch_operator.py
+[2022-09-23T08:37:05.931+0000] {processor.py:758} INFO - Processing file /home/airflow/.local/lib/python3.7/site-packages/airflow/example_dags/example_branch_operator.py for tasks to queue
+[2022-09-23T08:37:05.932+0000] {logging_mixin.py:117} INFO - [2022-09-23T08:37:05.932+0000] {dagbag.py:525} INFO - Filling up the DagBag from /home/airflow/.local/lib/python3.7/site-packages/airflow/example_dags/example_branch_operator.py
+[2022-09-23T08:37:05.955+0000] {processor.py:768} INFO - DAG(s) dict_keys(['example_branch_operator']) retrieved from /home/airflow/.local/lib/python3.7/site-packages/airflow/example_dags/example_branch_operator.py
+[2022-09-23T08:37:06.000+0000] {logging_mixin.py:117} INFO - [2022-09-23T08:37:06.000+0000] {dag.py:2573} INFO - Sync 1 DAGs
+[2022-09-23T08:37:06.028+0000] {logging_mixin.py:117} INFO - [2022-09-23T08:37:06.028+0000] {dag.py:3328} INFO - Setting next_dagrun for example_branch_operator to 2022-09-22T00:00:00+00:00, run_after=2022-09-23T00:00:00+00:00
+[2022-09-23T08:37:06.264+0000] {processor.py:178} INFO - Processing /home/airflow/.local/lib/python3.7/site-packages/airflow/example_dags/example_branch_operator.py took 0.339 seconds
+[2022-09-23T08:37:36.447+0000] {processor.py:156} INFO - Started process (PID=11021) to work on /home/airflow/.local/lib/python3.7/site-packages/airflow/example_dags/example_branch_operator.py
+[2022-09-23T08:37:36.492+0000] {processor.py:758} INFO - Processing file /home/airflow/.local/lib/python3.7/site-packages/airflow/example_dags/example_branch_operator.py for tasks to queue
+[2022-09-23T08:37:36.494+0000] {logging_mixin.py:117} INFO - [2022-09-23T08:37:36.493+0000] {dagbag.py:525} INFO - Filling up the DagBag from /home/airflow/.local/lib/python3.7/site-packages/airflow/example_dags/example_branch_operator.py
+[2022-09-23T08:37:36.519+0000] {processor.py:768} INFO - DAG(s) dict_keys(['example_branch_operator']) retrieved from /home/airflow/.local/lib/python3.7/site-packages/airflow/example_dags/example_branch_operator.py
+[2022-09-23T08:37:36.626+0000] {logging_mixin.py:117} INFO - [2022-09-23T08:37:36.626+0000] {dag.py:2573} INFO - Sync 1 DAGs
+[2022-09-23T08:37:36.673+0000] {logging_mixin.py:117} INFO - [2022-09-23T08:37:36.673+0000] {dag.py:3328} INFO - Setting next_dagrun for example_branch_operator to 2022-09-22T00:00:00+00:00, run_after=2022-09-23T00:00:00+00:00
+[2022-09-23T08:37:36.762+0000] {processor.py:178} INFO - Processing /home/airflow/.local/lib/python3.7/site-packages/airflow/example_dags/example_branch_operator.py took 0.319 seconds
