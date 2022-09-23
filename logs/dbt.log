@@ -1,0 +1,28 @@
+
+
+============================== 2022-09-22 10:13:28.669426 | 24d37293-d4bb-48db-92c4-969143469124 ==============================
+[0m10:13:28.669440 [info ] [MainThread]: Running with dbt=1.2.1
+[0m10:13:28.669926 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/home/ekubay/.dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'skip_profile_setup': False, 'which': 'init', 'indirect_selection': 'eager'}
+[0m10:13:28.670072 [debug] [MainThread]: Tracking: tracking
+[0m10:13:28.734317 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7ce13fdeb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7ce13fdc10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7ce13fdc40>]}
+[0m10:13:28.734856 [info ] [MainThread]: Creating dbt configuration folder at /home/ekubay/.dbt
+[0m10:15:21.084844 [debug] [MainThread]: Starter project path: /home/ekubay/Data-warehouse_DBT_Airflow/myapp/lib/python3.8/site-packages/dbt/include/starter_project
+[0m10:15:40.738141 [info ] [MainThread]: Profile postgres written to /home/ekubay/.dbt/profiles.yml using target's sample configuration. Once updated, you'll be able to start developing with dbt.
+[0m10:15:40.738435 [info ] [MainThread]: 
+Your new dbt project "postgres" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m10:15:40.738739 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7cdfc7d700>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7cdfc7d880>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7cdfc7d400>]}
+[0m10:15:40.739076 [debug] [MainThread]: Flushing usage events
