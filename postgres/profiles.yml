@@ -1,0 +1,50 @@
+trajectery:
+  outputs:
+
+    dev:
+      type: postgres
+      threads: 10
+      host: 127.0.0.1
+      port: 5432
+      user: postgres
+      pass: root
+      dbname: 
+      schema: public
+
+    prod:
+      type: postgres
+      threads: 10
+      host: 127.0.0.1
+      port: 5432
+      user: postgres
+      pass: root
+      dbname: trajectory_db
+      schema: public
+      
+  target: dev
+
+
+traffic_db:
+
+  outputs:
+    dev:
+      type: postgres
+      threads: 10
+      host: 192.168.1.100
+      port: 8585
+      user: airflow
+      pass: airflow
+      dbname: postgres
+      schema: public
+
+    prod:
+      type: postgres
+      threads: 10
+      host: 127.0.0.1
+      port: 5432
+      user: postgres
+      pass: root
+      dbname: traffic_db
+      schema: public
+
+  target: dev
