@@ -1,0 +1,18 @@
+
+version: 2
+
+models:
+  - name: fast_car_dbt_model
+    description: "fast vehicles"
+    columns:
+      - name: AVg_Speed
+        description: "average spped"
+
+  - name: trafic_data
+    description: "A starter dbt model"
+
+  - name: longdistance_car_dbt_model
+    description: "long distance and fast"
+  
+  - name: fast_vehicle_byType
+    description: "fast vehicle by type"
