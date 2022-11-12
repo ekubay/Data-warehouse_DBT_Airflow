@@ -46,7 +46,7 @@ services:
     ports:
       -"5433:5432"
     extra_hosts:
-      - "example1:host.docker.internal:host-getway"
+      - "host.docker.internal:host-getway"
   nginx:
     image: redash/nginx:latest
     ports:
