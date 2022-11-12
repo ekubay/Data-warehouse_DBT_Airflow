@@ -1,2 +1,4 @@
 .env
 myapp
+./postgres_data
+./redash.env
