@@ -13,6 +13,14 @@ models:
 
   - name: longdistance_car_dbt_model
     description: "long distance and fast"
+    columns:
+    - name: Traveled_Dis
+      description: "distance covered by the type of car"
+    - name: Type
+      description: "the type of car"
   
   - name: fast_vehicle_byType
     description: "fast vehicle by type"
+    columns:
+    - name: Type
+      description: "the type of vehicle"

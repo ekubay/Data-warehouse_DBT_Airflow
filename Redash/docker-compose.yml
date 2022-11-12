@@ -42,15 +42,15 @@ services:
       - ./postgres-data:/var/lib/postgresql/data
     restart: always
     environment:
-      POSTGRES_HOST_AUTH_METHOD: trust 
+      - POSTGRES_HOST_AUTH_METHOD=trust
     ports:
-      - "5433:5432"
+      -"5433:5432"
     extra_hosts:
-      - "host.docker.internal:host-gateway"
+      - "example1:host.docker.internal:host-getway"
   nginx:
     image: redash/nginx:latest
     ports:
-      - "3500:80"
+      - "3500:3500"
     depends_on:
       - server
     links:

@@ -2,7 +2,7 @@
 
 with traffic_datas as (
 
-    select * from Trajectory
+    select * from trajectory
 
 )
 
