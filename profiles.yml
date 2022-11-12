@@ -1,0 +1,24 @@
+postgres:
+  outputs:
+
+    dev:
+      type: postgres
+      threads: 10
+      host: local.docker.internal
+      port: 5432
+      user: postgres
+      pass: ekubay
+      dbname: trajectory_db
+      schema: public
+
+    prod:
+      type: postgres
+      threads: 10
+      host: local.docker.internal
+      port: 5432
+      user: postgres
+      pass: ekubay
+      dbname: trajectory_db
+      schema: public
+      
+  target: dev
