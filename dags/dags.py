@@ -2,11 +2,11 @@
 import airflow
 from datetime import datetime
 from datetime import timedelta
+from sqlalchemy import create_engine
 from airflow import DAG
 from airflow.operators.postgres_operator import PostgresOperator
 from airflow.utils.dates import days_ago
 import pendulum
-
 # configuring default airflow
 args={'owner':'ekubay'}
 
