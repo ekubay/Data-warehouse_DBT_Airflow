@@ -5,7 +5,7 @@ A city traffic department wants to collect traffic data using swarm UAVs (drones
 The data can be found [here](https://open-traffic.epfl.ch/index.php/downloads/#1599047632450-ebe509c8-1330)
 
 ## Tech-Stack Flow Diagram
-![](screenshots/flow.PNG)
+![](screenshots/workflow.png)
 
 ## Tools used in this project
 - [Dbt](https://docs.getdbt.com/docs/building-a-dbt-project/documentation)
