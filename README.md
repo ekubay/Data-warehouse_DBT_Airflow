@@ -44,7 +44,7 @@ pip install -r requirements.txt
 
 ## Scripts
 
-> All the scripts and modules used for this project relating to interactions with the kafka, airflow, spark and other frameworks along with default parameters and values used will be found here, in the scripts folder.
+> All the scripts and modules used for this project relating to are found in the scripts folder
 
 ## Tests
 
@@ -64,6 +64,6 @@ pip install -r requirements.txt
 >
 > - [Email](mailto:axutec14@gmail.com), [GitHub](https://github.com/ekubay), [LinkedIn](https://www.linkedin.com/in/ekubay/)
 
-## Show us your support
+## Show your support
 
-> Give us a ⭐ if you like this project, and also feel free to contact us at any moment.
+> Give a ⭐ if you like this project, and also feel free to contact us at any moment.
