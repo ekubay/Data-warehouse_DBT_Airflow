@@ -22,7 +22,7 @@ You can find the full list of requirements in the requirements.txt file
 
 ## Install
 
-> We highly recommend you create a new virtual environment and install every required modules and libraries on the virtual environment.
+> Highly recommended to create a new virtual environment and install every required modules and libraries on the virtual environment.
 
 ### Installing this application
 
@@ -60,7 +60,7 @@ pip install -r requirements.txt
 
 ## Authors
 
-> 👤 **Ekubazgi Gebremariam**
+> 👤 **Akubazgi Gebremariam**
 >
 > - [Email](mailto:axutec14@gmail.com), [GitHub](https://github.com/ekubay), [LinkedIn](https://www.linkedin.com/in/ekubay/)
 
